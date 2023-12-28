@@ -135,3 +135,24 @@ for (var i = 1; i < finances.length; i++) {
   }}
 // Display the result
 console.log('Greatest Increase in Profits:', greatestIncreaseMonth, '($' + greatestIncrease + ')');
+
+
+
+// Initialize variables for greatest decrease and corresponding month
+var greatestDecrease = 0;
+var greatestDecreaseMonth = '';
+
+// Iterate through the finances array starting from the second month
+for (var i = 1; i < finances.length; i++) {
+  // Calculate the change from the previous month to the current month
+  var change = finances[i][1] - finances[i - 1][1];
+
+  // Check if the current change is less than the greatestDecrease
+  if (change < greatestDecrease) {
+      greatestDecrease = change;
+      greatestDecreaseMonth = finances[i][0]; // Store the corresponding month
+  }
+}
+
+// Display the result
+console.log('Greatest Decrease in Profits:', greatestDecreaseMonth, '($' + greatestDecrease + ')');
