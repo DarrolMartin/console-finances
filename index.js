@@ -92,14 +92,46 @@ var finances = [
   
   // Initialize a variable
 var netTotal = 0;
-
-
 // Iterate through each entry and accumulate the values
 for (var i = 0; i < finances.length; i++) {
  // The profit/loss value is in the second position of each sub-array
  var profitLoss = finances[i][1]; 
   // Add the profit/loss value to the net total
-  netTotal += profitLoss;
+  netTotal += profitLoss; 
 }
-
 console.log(netTotal);
+
+// Initialize variables for total changes and count of changes
+var totalChanges = 0;
+var changesCount = 0;
+// Iterate through the finances array starting from the second month
+for (var i = 1; i < finances.length; i++) {
+  // Calculate the change from the previous month to the current month
+  var change = finances[i][1] - finances[i - 1][1];
+  // Add the change to the total changes
+  totalChanges += change;
+  // Increment the count of changes
+  changesCount++;
+}
+// Calculate the average change
+var averageChange = totalChanges / changesCount;
+// Display the result using string concatenation
+console.log('Average Change in Profit/Losses over the entire period: $' + averageChange.toFixed(2));
+
+
+// Initialize variables for greatest increase and corresponding month
+var greatestIncrease = 0;
+var greatestIncreaseMonth = '';
+
+// Iterate through the finances array starting from the second month
+for (var i = 1; i < finances.length; i++) {
+  // Calculate the change from the previous month to the current month
+  var change = finances[i][1] - finances[i - 1][1];
+
+  // Check if the current change is greater than the greatestIncrease
+  if (change > greatestIncrease) {
+      greatestIncrease = change;
+      greatestIncreaseMonth = finances[i][0]; // Store the corresponding month
+  }}
+// Display the result
+console.log('Greatest Increase in Profits:', greatestIncreaseMonth, '($' + greatestIncrease + ')');
