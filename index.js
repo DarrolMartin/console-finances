@@ -87,5 +87,6 @@ var finances = [
     ['Feb-2017', 671099],
   ];
   console.log("load index.js");
+  const totalMonths = finances.length; 
   console.log(finances.length);
-  var
+  
