@@ -90,3 +90,16 @@ var finances = [
   const totalMonths = finances.length; 
   console.log(finances.length);
   
+  // Initialize a variable
+var netTotal = 0;
+
+
+// Iterate through each entry and accumulate the values
+for (var i = 0; i < finances.length; i++) {
+ // The profit/loss value is in the second position of each sub-array
+ var profitLoss = finances[i][1]; 
+  // Add the profit/loss value to the net total
+  netTotal += profitLoss;
+}
+
+console.log(netTotal);
