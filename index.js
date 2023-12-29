@@ -143,8 +143,8 @@ for (var i = 1; i < finances.length; i++) {
 // Display the result
 var formattedNumber = '$' + (greatestIncrease / 100).toFixed(2);
 console.log('Greatest Increase in Profits/Losses:', greatestIncreaseMonth, '($' + greatestIncrease + ')');
-
-
+var greatestIncreasePlaceholder = document.getElementById('greatestIncreasePlaceholder');
+greatestIncreasePlaceholder.querySelector('span').textContent = greatestIncreaseMonth +  ' ( $' +  greatestIncrease + ')';
 
 // Initialize variables for greatest decrease and corresponding month
 var greatestDecrease = 0;
@@ -159,9 +159,9 @@ for (var i = 1; i < finances.length; i++) {
   if (change < greatestDecrease) {
       greatestDecrease = change;
       greatestDecreaseMonth = finances[i][0]; // Store the corresponding month
-  }
 }
-
+}
 // Display the result
-
-console.log('Greatest Decrease in Profits:', greatestDecreaseMonth, '($' + greatestDecrease + ')');
+console.log('Greatest Decrease in Profits/Losses:', greatestDecreaseMonth, '($' + greatestDecrease + ')');
+var greatestDecreasePlaceholder = document.getElementById('greatestDecreasePlaceholder');
+greatestDecreasePlaceholder.querySelector('span').textContent = greatestDecreaseMonth +  ' ( $' +  greatestDecrease + ')';
