@@ -89,6 +89,8 @@ var finances = [
   console.log("load index.js");
   const totalMonths = finances.length; 
   console.log(finances.length);
+  var totalMonthsPlaceholder = document.getElementById('totalMonthsPlaceholder');
+        totalMonthsPlaceholder.querySelector('span').textContent = finances.length;
   
   // Initialize a variable
 var netTotal = 0;
@@ -97,9 +99,11 @@ for (var i = 0; i < finances.length; i++) {
  // The profit/loss value is in the second position of each sub-array
  var profitLoss = finances[i][1]; 
   // Add the profit/loss value to the net total
-  netTotal += profitLoss; 
-}
+  netTotal += profitLoss; }
 console.log(netTotal);
+var netTotalPlaceholder = document.getElementById('netTotalPlaceholder');
+        netTotalPlaceholder.querySelector('span').textContent = netTotal;
+
 
 // Initialize variables for total changes and count of changes
 var totalChanges = 0;
@@ -111,12 +115,15 @@ for (var i = 1; i < finances.length; i++) {
   // Add the change to the total changes
   totalChanges += change;
   // Increment the count of changes
-  changesCount++;
-}
+  changesCount++;}
 // Calculate the average change
 var averageChange = totalChanges / changesCount;
 // Display the result using string concatenation
-console.log('Average Change in Profit/Losses over the entire period: $' + averageChange.toFixed(2));
+console.log('Average Change: $' + averageChange.toFixed(2));
+var averageChangePlaceholder = document.getElementById('averageChangePlaceholder');
+        averageChangePlaceholder.querySelector('span').textContent = averageChange.toFixed(2);
+
+
 
 
 // Initialize variables for greatest increase and corresponding month
@@ -134,7 +141,8 @@ for (var i = 1; i < finances.length; i++) {
       greatestIncreaseMonth = finances[i][0]; // Store the corresponding month
   }}
 // Display the result
-console.log('Greatest Increase in Profits:', greatestIncreaseMonth, '($' + greatestIncrease + ')');
+var formattedNumber = '$' + (greatestIncrease / 100).toFixed(2);
+console.log('Greatest Increase in Profits/Losses:', greatestIncreaseMonth, '($' + greatestIncrease + ')');
 
 
 
@@ -155,4 +163,5 @@ for (var i = 1; i < finances.length; i++) {
 }
 
 // Display the result
+
 console.log('Greatest Decrease in Profits:', greatestDecreaseMonth, '($' + greatestDecrease + ')');
